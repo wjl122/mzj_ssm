@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzj.dao.ShowIndexesDao" >
+  
+  <select id="queryAll" resultType="ShowIndexesModel">
+    SELECT  *  FROM  ShowIndexes order by id desc  
+    LIMIT #{offset}, #{limit}
+  </select>
+  
+  <select id="queryAllByType" resultType="ShowIndexesModel" parameterType="java.lang.String">
+   SELECT  *  FROM  ShowIndexes where type=#{type,jdbcType=VARCHAR} order by id desc  
+  </select>
+
+</mapper>
